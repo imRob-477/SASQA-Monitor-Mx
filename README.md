@@ -1,2 +1,2 @@
-content://media/external/downloads/1000112769
+https://cdn.discordapp.com/attachments/1267293632696942624/1481023127675736214/Monitor_en_vivo_20260307_122242_0000.png?ex=69b1cdc5&is=69b07c45&hm=ef030408f7908f7905d9938726b23b36dd467c8415579d2ad42243026aef39e6
 𝗦𝗔𝗦𝗤𝗔 Monitor en vivo
