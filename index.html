@@ -294,20 +294,20 @@ body.moderado-activo .clock-time { color: var(--warn); }
       body.classList.add('alerta-activa');
       document.getElementById('alertaHora').textContent = hora;
       headerLabel.textContent = '¡ALERTA ACTIVA!';
-      // Reproducir ETWS solo cuando cambia a fuerte
       if (tipoAnterior !== 'fuerte') {
         const audio = document.getElementById('audioAlerta');
         audio.currentTime = 0;
         audio.play().catch(() => {});
+        enviarNotificacionPush('🚨 ALERTA SÍSMICA', 'Se ha detectado un sismo fuerte. Toma precauciones.');
       }
     } else if (tipo === 'moderado') {
       moderadoBanner.classList.add('show');
       body.classList.add('moderado-activo');
       document.getElementById('moderadoHora').textContent = hora;
       headerLabel.textContent = 'Sismo moderado';
-      // Reproducir tono suave solo cuando cambia a moderado
       if (tipoAnterior !== 'moderado') {
         tonoModerado();
+        enviarNotificacionPush('⚠️ Sismo Moderado', 'Se ha detectado un sismo moderado en la red.');
       }
     } else {
       headerLabel.textContent = 'Sistema activo';
@@ -315,6 +315,26 @@ body.moderado-activo .clock-time { color: var(--warn); }
 
     tipoAnterior = tipo;
   });
+
+async function enviarNotificacionPush(titulo, mensaje) {
+  try {
+    await fetch("https://onesignal.com/api/v1/notifications", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": "Basic os_v2_app_kzgzwrgrafbxvh26mtfmnmjfw4rxh53kfegeapm2uo63f65vfbmc5olex5dpxyhvujjfxtlfhwkd3ene67s3bukoajtritbgn543mxy"
+      },
+      body: JSON.stringify({
+        app_id: "564d9b44-d101-437a-9f5e-64cac6b125b7",
+        included_segments: ["All"],
+        headings: { es: titulo },
+        contents: { es: mensaje }
+      })
+    });
+  } catch(e) {
+    console.error("Error enviando notificación:", e);
+  }
+}
 
   // ── Auth ───────────────────────────────────────────
   onAuthStateChanged(auth, user => {
