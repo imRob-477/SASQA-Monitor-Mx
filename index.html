@@ -106,6 +106,8 @@ body.moderado-activo .clock-time { color: var(--warn); }
   OneSignalDeferred.push(async function(OneSignal) {
     await OneSignal.init({
       appId: "564d9b44-d101-437a-9f5e-64cac6b125b7",
+      serviceWorkerPath: "OneSignalSDKWorker.js",
+      serviceWorkerParam: { scope: "/SASQA-Monitor-Mx/" },
       promptOptions: {
         slidedown: {
           prompts: [{
