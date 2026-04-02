@@ -106,6 +106,19 @@ body.moderado-activo .clock-time { color: var(--warn); }
   OneSignalDeferred.push(async function(OneSignal) {
     await OneSignal.init({
       appId: "564d9b44-d101-437a-9f5e-64cac6b125b7",
+      promptOptions: {
+        slidedown: {
+          prompts: [{
+            type: "push",
+            autoPrompt: true,
+            text: {
+              actionMessage: "SASQA quiere enviarte alertas sísmicas",
+              acceptButton: "Permitir",
+              cancelButton: "No gracias"
+            }
+          }]
+        }
+      }
     });
   });
 </script>
