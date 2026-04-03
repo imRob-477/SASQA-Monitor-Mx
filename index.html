@@ -329,7 +329,7 @@ async function enviarNotificacionPush(titulo, mensaje) {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": "Basic os_v2_app_kzgzwrgrafbxvh26mtfmnmjfw4rxh53kfegeapm2uo63f65vfbmc5olex5dpxyhvujjfxtlfhwkd3ene67s3bukoajtritbgn543mxy"
+        "Authorization": "Basic os_v2_app_kzgzwrgrafbxvh26mtfmnmjfw4d4gb76umcurr4jownygplbxabfy3gnpkeyncsekli5sfkysu7pe75cipy6lzmv3brtsramvrcofsa"
       },
       body: JSON.stringify({
         app_id: "564d9b44-d101-437a-9f5e-64cac6b125b7",
@@ -341,8 +341,7 @@ async function enviarNotificacionPush(titulo, mensaje) {
   } catch(e) {
     console.error("Error enviando notificación:", e);
   }
-}
-
+  }
   // ── Auth ───────────────────────────────────────────
   onAuthStateChanged(auth, user => {
     document.getElementById('loginPanel').style.display = user ? 'none'  : 'block';
