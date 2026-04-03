@@ -9,7 +9,7 @@ exports.handler = async function(event) {
       headers: {
         "Content-Type": "application/json",
         "Authorization": "Basic " + process.env.ONESIGNAL_API_KEY
-          
+      },
       body: JSON.stringify({
         app_id: "564d9b44-d101-437a-9f5e-64cac6b125b7",
         included_segments: ["All"],
