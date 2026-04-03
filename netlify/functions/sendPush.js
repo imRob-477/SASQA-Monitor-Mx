@@ -1,0 +1,23 @@
+exports.handler = async (event) => {
+  const { titulo, mensaje } = JSON.parse(event.body);
+
+  const response = await fetch("https://onesignal.com/api/v1/notifications", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": "Basic os_v2_app_kzgzwrgrafbxvh26mtfmnmjfw4d4gb76umcurr4jownygplbxabfy3gnpkeyncsekli5sfkysu7pe75cipy6lzmv3brtsramvrcofsa"
+    },
+    body: JSON.stringify({
+      app_id: "564d9b44-d101-437a-9f5e-64cac6b125b7",
+      included_segments: ["All"],
+      headings: { es: titulo },
+      contents: { es: mensaje }
+    })
+  });
+
+  const data = await response.json();
+  return {
+    statusCode: 200,
+    body: JSON.stringify(data)
+  };
+};
