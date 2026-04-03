@@ -13,8 +13,8 @@ exports.handler = async function(event) {
       body: JSON.stringify({
         app_id: "564d9b44-d101-437a-9f5e-64cac6b125b7",
         included_segments: ["All"],
-        headings: { es: titulo },
-        contents: { es: mensaje }
+        headings: { en: titulo, es: titulo },
+        contents: { en: mensaje, es: mensaje }
       })
     });
 
