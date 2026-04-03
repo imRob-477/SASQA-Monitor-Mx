@@ -8,8 +8,8 @@ exports.handler = async function(event) {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": "Basic os_v2_app_kzgzwrgrafbxvh26mtfmnmjfw7m3cpxhhliun5ntffnotaowqb6nw77xqgdezyqdo3bkouxzaf37hcrf2igu3xlylxyvviydix56bxy"
-      },
+        "Authorization": "Basic " + process.env.ONESIGNAL_API_KEY
+          
       body: JSON.stringify({
         app_id: "564d9b44-d101-437a-9f5e-64cac6b125b7",
         included_segments: ["All"],
