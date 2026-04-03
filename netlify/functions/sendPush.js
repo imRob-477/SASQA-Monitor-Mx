@@ -6,8 +6,8 @@ exports.handler = async (event) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": "Basic os_v2_app_kzgzwrgrafbxvh26mtfmnmjfw4d4gb76umcurr4jownygplbxabfy3gnpkeyncsekli5sfkysu7pe75cipy6lzmv3brtsramvrcofsa"
-      },
+        "Authorization": "Basic os_v2_app_kzgzwrgrafbxvh26mtfmnmjfw7m3cpxhhliun5ntffnotaowqb6nw77xqgdezyqdo3bkouxzaf37hcrf2igu3xlylxyvviydix56bxy"
+          
       body: JSON.stringify({
         app_id: "564d9b44-d101-437a-9f5e-64cac6b125b7",
         included_segments: ["All"],
