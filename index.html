@@ -325,23 +325,17 @@ body.moderado-activo .clock-time { color: var(--warn); }
 
 async function enviarNotificacionPush(titulo, mensaje) {
   try {
-    await fetch("https://onesignal.com/api/v1/notifications", {
+    await fetch("/.netlify/functions/sendPush", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
-        "Authorization": "Basic os_v2_app_kzgzwrgrafbxvh26mtfmnmjfw4d4gb76umcurr4jownygplbxabfy3gnpkeyncsekli5sfkysu7pe75cipy6lzmv3brtsramvrcofsa"
+        "Content-Type": "application/json"
       },
-      body: JSON.stringify({
-        app_id: "564d9b44-d101-437a-9f5e-64cac6b125b7",
-        included_segments: ["All"],
-        headings: { es: titulo },
-        contents: { es: mensaje }
-      })
+      body: JSON.stringify({ titulo, mensaje })
     });
   } catch(e) {
     console.error("Error enviando notificación:", e);
   }
-  }
+}
   // ── Auth ───────────────────────────────────────────
   onAuthStateChanged(auth, user => {
     document.getElementById('loginPanel').style.display = user ? 'none'  : 'block';
