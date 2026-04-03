@@ -335,7 +335,7 @@ async function enviarNotificacionPush(titulo, mensaje) {
   } catch(e) {
     console.error("Error enviando notificación:", e);
   }
-}
+  }
   // ── Auth ───────────────────────────────────────────
   onAuthStateChanged(auth, user => {
     document.getElementById('loginPanel').style.display = user ? 'none'  : 'block';
